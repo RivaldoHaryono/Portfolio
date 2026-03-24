@@ -281,7 +281,7 @@ header:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 150px 100px 100px;
+    padding: 150px 180px 100px 100px;
     position: relative;
     z-index: 1;
     gap: 100px;
@@ -402,226 +402,71 @@ header:hover {
     box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
 }
 
-/* 3D Profile Container */
-.profile-img {
-    width: 280px;
-    height: 300px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 15px;
+/* Professional Profile Container */
+.profile-wrapper {
+    width: 300px;
+    height: 320px;
     position: relative;
     z-index: 2;
     transform-style: preserve-3d;
-    perspective: 1000px;
-    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-    animation: float3D 8s ease-in-out infinite;
-    will-change: transform;
+    transition: transform 0.4s ease-out;
 }
 
-/* Enhanced Floating 3D Animation */
-@keyframes float3D {
-    0% {
-        transform: translateY(0) translateZ(0) rotateX(0deg) rotateY(0deg);
-    }
-
-    15% {
-        transform: translateY(-20px) translateZ(20px) rotateX(3deg) rotateY(-3deg);
-    }
-
-    30% {
-        transform: translateY(-35px) translateZ(35px) rotateX(0deg) rotateY(0deg);
-    }
-
-    45% {
-        transform: translateY(-20px) translateZ(20px) rotateX(-3deg) rotateY(3deg);
-    }
-
-    60% {
-        transform: translateY(0) translateZ(0) rotateX(0deg) rotateY(0deg);
-    }
-
-    75% {
-        transform: translateY(-15px) translateZ(15px) rotateX(2deg) rotateY(-2deg);
-    }
-
-    90% {
-        transform: translateY(-25px) translateZ(25px) rotateX(-2deg) rotateY(2deg);
-    }
-
-    100% {
-        transform: translateY(0) translateZ(0) rotateX(0deg) rotateY(0deg);
-    }
-}
-
-/* 3D Card Wrapper with Enhanced Shadows */
-.home .profile-img {
-    box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.6),
-        0 10px 30px rgba(0, 0, 0, 0.4),
-        0 0 0 1px rgba(255, 255, 255, 0.08),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.12),
-        0 0 60px rgba(212, 175, 55, 0.15);
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: block;
     position: relative;
-    overflow: hidden;
-}
-
-/* Glassmorphism Overlay */
-.home .profile-img::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg,
-            rgba(212, 175, 55, 0.15) 0%,
-            transparent 50%,
-            rgba(95, 158, 160, 0.15) 100%);
-    border-radius: 20px;
-    opacity: 0;
-    transition: opacity 0.8s ease;
-    pointer-events: none;
-    z-index: 1;
-}
-
-/* Animated Gradient Border with Glow */
-.home .profile-img::after {
-    content: '';
-    position: absolute;
-    top: -3px;
-    left: -3px;
-    right: -3px;
-    bottom: -3px;
-    background: linear-gradient(45deg,
-            var(--accent-gold),
-            var(--accent-teal),
-            var(--primary-blue),
-            var(--accent-gold));
-    border-radius: 20px;
-    z-index: -1;
-    opacity: 0;
-    filter: blur(15px);
-    background-size: 400% 400%;
-    animation: gradientShift 10s ease infinite;
-    transition: opacity 0.8s ease;
-}
-
-@keyframes gradientShift {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    25% {
-        background-position: 50% 100%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    75% {
-        background-position: 50% 0%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-/* Shine Effect Overlay */
-.home .profile-img {
-    overflow: visible;
-}
-
-.home .profile-img:before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -100%;
-    width: 50%;
-    height: 200%;
-    background: linear-gradient(90deg,
-            transparent,
-            rgba(255, 255, 255, 0.3),
-            transparent);
-    transform: skewX(-25deg);
-    animation: shine 8s ease-in-out infinite;
-    pointer-events: none;
     z-index: 2;
 }
 
-@keyframes shine {
-
-    0%,
-    100% {
-        left: -100%;
-        opacity: 0;
-    }
-
-    10% {
-        opacity: 1;
-    }
-
-    20% {
-        left: 200%;
-        opacity: 0;
-    }
+/* Elegant Border Frame */
+.profile-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--accent-gold);
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+    z-index: 1;
+    transition: transform 0.4s ease-out;
 }
 
-/* Enhanced Hover Effects */
-.home .profile-img:hover {
-    transform: translateY(-30px) translateZ(50px) scale(1.08) rotateX(8deg) rotateY(8deg);
-    box-shadow:
-        0 40px 100px rgba(0, 0, 0, 0.8),
-        0 20px 50px rgba(0, 0, 0, 0.5),
-        0 0 0 1px rgba(212, 175, 55, 0.4),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.25),
-        0 0 80px rgba(212, 175, 55, 0.4),
-        0 0 120px rgba(95, 158, 160, 0.3);
-    animation-play-state: paused;
+/* Subtle Hover Effect */
+.profile-wrapper:hover {
+    transform: translateY(-5px);
 }
 
-.home .profile-img:hover::before {
-    opacity: 1;
+.profile-wrapper:hover::before {
+    transform: translate(10px, 10px);
 }
 
-.home .profile-img:hover::after {
-    opacity: 1;
-    filter: blur(20px);
+/* Image finish */
+.profile-img:hover {
+    filter: brightness(1.05);
+    transition: filter 0.3s ease;
 }
 
-/* 3D Depth Layers */
-.home {
-    perspective: 2000px;
-    perspective-origin: center;
-}
-
-/* Reflection Effect */
+/* Background Glow - Static & Subtle */
 .home::before {
     content: '';
     position: absolute;
-    top: 15%;
-    left: 5%;
-    width: 250px;
-    height: 250px;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
     border-radius: 50%;
-    filter: blur(60px);
-    animation: pulseGlow 4s ease-in-out infinite;
-}
-
-@keyframes pulseGlow {
-
-    0%,
-    100% {
-        opacity: 0.5;
-        transform: scale(1);
-    }
-
-    50% {
-        opacity: 0.8;
-        transform: scale(1.2);
-    }
+    z-index: 0;
+    pointer-events: none;
 }
 
 /* =====================
